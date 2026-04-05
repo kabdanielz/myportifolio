@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore My Work | Kab Danielz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 100%);
+            z-index: -1;
+        }
+
+        /* Header / Hero */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 4rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* CTA Button */
+        .btn-explore {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: var(--primary);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-explore:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.5);
+            background: var(--secondary);
+        }
+
+        /* Gallery Grid */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .gallery-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .work-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .work-card:hover {
+            transform: scale(1.03);
+            border-color: var(--primary);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 200px;
+            background: #1e293b; /* Placeholder color */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #475569;
+            font-weight: bold;
+        }
+
+        .work-info {
+            padding: 1.5rem;
+        }
+
+        .work-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .work-info p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <header>
+        <h1>Creative Vision.</h1>
+        <p class="subtitle">Exploring the intersection of design, code, and user experience. Check out my latest projects below. It includes more of what i do in my free time. Web development involves building and maintaining websites or web applications. It includes coding, designing, and ensuring sites work smoothly on devices like phones and computers. Think creating online shops, portfolios, or tools that help people interact with businesses or services<br>I can make use of my skiils an come up with ome of wesires. Please, could You choose what web i could make for you?↓↓↓↓ </p>
+        <button class="btn-explore" onclick="scrollToGallery()">Explore My Work ↓</button>
+    </header>
+
+    <main class="gallery-container" id="gallery">
+        <div class="work-card">
+            <div class="work-image">PROJECT 01</div>
+            <div class="work-info">
+                <h3>Marketing websites</h3>
+                <p>Data visualization website built for high-scale enterprise analytics and digital marketing.</p>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-image">PROJECT 02</div>
+            <div class="work-info">
+                <h3>Portifolio</h3>
+                <p>Sustainable living, with all people getting to know u better websites with real-time carbon footprint.</p>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-image">PROJECT 03</div>
+            <div class="work-info">
+                <h3>Zenith Branding</h3>
+                <p>Complete visual identity design for a next-generation aerospace startup.</p>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-image">PROJECT 04</div>
+            <div class="work-info">
+                <h3>Vortex Engine</h3>
+                <p>Experimental 3D rendering engine built using WebGL and TypeScript.</p>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-image">PROJECT 05</div>
+            <div class="work-info">
+                <h3>Pulse Social</h3>
+                <p>A minimalist social media platform focused on privacy and deep work.</p>
+            </div>
+        </div>
+
+        <div class="work-card">
+            <div class="work-image">PROJECT 06</div>
+            <div class="work-info">
+                <h3>Aura E-Commerce</h3>
+                <p>High-end luxury shopping experience with motion-heavy interactions.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Smooth scroll to gallery
+        function scrollToGallery() {
+            const gallery = document.getElementById('gallery');
+            gallery.classList.add('visible');
+            gallery.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Reveal gallery on scroll (optional)
+        window.addEventListener('scroll', () => {
+            const gallery = document.getElementById('gallery');
+            const position = gallery.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if (position < screenHeight - 100) {
+                gallery.classList.add('visible');
+            }
+        });
+    </script>
+</body>
+</html>
